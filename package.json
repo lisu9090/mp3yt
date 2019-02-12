@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "express": "^4.16.4",
-    "youtube-mp3-downloader": "^0.5.3"
-  }
-}
