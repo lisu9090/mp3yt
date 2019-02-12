@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.16.4",
+    "yarn": "^1.13.0",
     "youtube-mp3-downloader": "^0.5.3"
   }
 }
