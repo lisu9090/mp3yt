@@ -5,7 +5,6 @@ const clean = require('gulp-clean');
 
 const app = express();
 const port = process.env.PORT || 3000;
-// let audioName = "";
 
 const YD = new YoutubeMp3Downloader({
     "ffmpegPath": __dirname + "/ffmpeg/bin/ffmpeg.exe",        // Where is the FFmpeg binary located?
@@ -30,23 +29,30 @@ app.get('/getaudio/:vid', (req, res) => {
 
     console.log(req.params + '\n');
 
-    YD.download(req.params.vid, audioName);
+    try{
+        YD.download(req.params.vid, audioName);
     
-    YD.on("finished", function(err, data) {
-        console.log(JSON.stringify(data));
-        res.download(__dirname +'/converted/' + audioName, () => {
-            removeFile(audioName);
-        }); 
-    });
-    
-    YD.on("error", function(error) {
-        res.status(404).send("Error!");
-        console.log(error);
-    });
-    
-    YD.on("progress", function(progress) {
-        console.log(JSON.stringify(progress));
-    });
+        YD.on("finished", function(err, data) {
+            console.log(JSON.stringify(data));
+            res.download(__dirname +'/converted/' + audioName, () => {
+                removeFile(audioName);
+            }); 
+        });
+        
+        YD.on("error", function(error) {
+            res.status(404).send("Error!");
+            console.log(error);
+        });
+        
+        YD.on("progress", function(progress) {
+            console.log(JSON.stringify(progress));
+        });
+    }
+    catch(exception){
+        console.log(exception)
+        res.status(500).send("Internal server error");
+    }
+
 });
 
 app.post('/cancel/:vid', (req, res) => {
