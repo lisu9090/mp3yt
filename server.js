@@ -8,8 +8,8 @@ const port = process.env.PORT || 3000;
 // let audioName = "";
 
 const YD = new YoutubeMp3Downloader({
-    "ffmpegPath": __dirname + "\\ffmpeg\\bin\\ffmpeg.exe",        // Where is the FFmpeg binary located?
-    "outputPath": __dirname + "\\converted",    // Where should the downloaded and encoded files be stored?
+    "ffmpegPath": __dirname + "/ffmpeg/bin/ffmpeg.exe",        // Where is the FFmpeg binary located?
+    "outputPath": __dirname + "/converted",    // Where should the downloaded and encoded files be stored?
     "youtubeVideoQuality": "highest",       // What video quality should be used?
     "queueParallelism": 2,                  // How many parallel downloads/encodes should be started?
     "progressTimeout": 2000                 // How long should be the interval of the progress reports
@@ -34,7 +34,7 @@ app.get('/getaudio/:vid', (req, res) => {
     
     YD.on("finished", function(err, data) {
         console.log(JSON.stringify(data));
-        res.download(__dirname +'\\converted\\' + audioName, () => {
+        res.download(__dirname +'/converted/' + audioName, () => {
             removeFile(audioName);
         }); 
     });
