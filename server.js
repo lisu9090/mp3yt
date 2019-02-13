@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const clean = require('gulp-clean');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 // let audioName = "";
 
 const YD = new YoutubeMp3Downloader({
@@ -40,7 +40,7 @@ app.get('/getaudio/:vid', (req, res) => {
     });
     
     YD.on("error", function(error) {
-        res.send("Error!");
+        res.status(404).send("Error!");
         console.log(error);
     });
     
