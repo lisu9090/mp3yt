@@ -17,7 +17,7 @@ const YD = new YoutubeMp3Downloader({
 app.listen(port, () => console.log(`YouTube mp3 downloader is listening on port ${port}!`));
 
 app.get('/', (req, res) => {
-    res.send("localhost:300/getaudio/:vid");
+    res.sendFile('/views/index.html')
 });
 
 app.get('/getaudio/:vid', (req, res) => {
