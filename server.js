@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const YD = new YoutubeMp3Downloader({
-    "ffmpegPath": __dirname + "/ffmpeg/bin/ffmpeg.exe",        // Where is the FFmpeg binary located?
+    "ffmpegPath": __dirname + "/vendor/ffmpeg",        // Where is the FFmpeg binary located?
     "outputPath": __dirname + "/converted",    // Where should the downloaded and encoded files be stored?
     "youtubeVideoQuality": "highest",       // What video quality should be used?
     "queueParallelism": 2,                  // How many parallel downloads/encodes should be started?
