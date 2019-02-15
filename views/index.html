@@ -2,19 +2,12 @@
 <html>
     <head>
         <title>MP3YT</title>
+        <script src="index.js"></script>
     </head>
     <body>
         <h1>YouTube to mp3 converter</h1>
         <i>Provide ID of YouTube video</i><br /><br />
         <input type="text" id="url"/><br /><br />
         <button type="button" onclick="processUrl()">Convert & download</button>
-        <script>
-            var processUrl = function(){
-               var url = document.getElementById('url').value;
-               if(url){
-                window.location.href += '/getaudio/' + url;
-               }
-            }
-        </script>
     </body>
 </html>
