@@ -1,6 +1,15 @@
 var processUrl = function(){
-    var url = $('#url').value;
-    if(url){
-     window.location.href += 'getaudio/' + url;
+    var urlString = $('#url').val();
+    if(urlString){
+      $("#progress").show();
+      $("#loading").show();
+
+      var url = new URL(urlString);
+      var vid = url.searchParams.get("v");
+      window.location.href += 'getaudio/' + vid;
     }
+ }
+
+ var selectInput = function(){
+   $('#url').select();
  }
