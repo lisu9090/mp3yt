@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>MP3YT</title>
-        <script src="https://mp3yt.herokuapp.com/scripts/index.js"></script>
-    </head>
-    <body>
-        <h1>YouTube to mp3 converter</h1>
-        <i>Provide ID of YouTube video</i><br /><br />
-        <input type="text" id="url"/><br /><br />
-        <button type="button" onclick="processUrl()">Convert & download</button>
-        <!-- <script>
-            var processUrl = function(){
-                var url = document.getElementById('url').value;
-                if(url){
-                window.location.href += 'getaudio/' + url;
-                }
-            }
-        </script> -->
+
+<head>
+    <title>MP3YT</title>
+    <script src="https://mp3yt.herokuapp.com/scripts/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://mp3yt.herokuapp.com/styles/index.css" />
+</head>
+
+<body style="background-color: #5f5f5f;text-align:center;">
+        <div class="main-container">
+            <h1 style="margin-bottom:60px;">YouTube to mp3 converter</h1>
+            <div class="input-container clearfix">
+                <i class="input-info">Provide link to YouTube video</i>
+                <input class="input-custom" type="text" id="url" placeholder="e.g. https://www.youtube.com/watch?v=mMWBh0B9F0M"/>
+                <button class="button-custom" type="button" onclick="processUrl()">Convert & download</button>
+            </div>
+            <p id="error" class="error-info">Processing failed. Try again!</p>
+            <p id="success" class="success-info">Success!</p>
+            <p id="progress" class="progress-info">Server is working...</p>
+            <img id="loading" style="height:25px;display:none;" src="https://mp3yt.herokuapp.com/assets/loading.gif">
+        </div>
     </body>
+
 </html>

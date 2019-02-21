@@ -26,6 +26,14 @@ app.get('/scripts/:name', (req, res) => {
     res.sendFile(__dirname + '/scripts/' + req.params.name);
 });
 
+app.get('/styles/:name', (req, res) => {
+    res.sendFile(__dirname + '/styles/' + req.params.name);
+});
+
+app.get('/assets/:name', (req, res) => {
+    res.sendFile(__dirname + '/assets/' + req.params.name);
+});
+
 app.get('/getaudio/:vid', (req, res) => {
     let audioName;
     if(req.params.vid)

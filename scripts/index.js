@@ -1,6 +1,6 @@
 var processUrl = function(){
-    var url = document.getElementById('url').value;
+    var url = $('#url').value;
     if(url){
-     window.location.href += '/getaudio/' + url;
+     window.location.href += 'getaudio/' + url;
     }
  }

@@ -1,0 +1,53 @@
+.main-container{
+    text-align: center;
+    display: inline-block;
+	margin-top:100px;
+    padding: 35px 120px 60px 120px;
+    background-color: #f0f0f0;
+	border-radius:2px;
+
+}
+
+.input-info{
+    margin-bottom:20px;
+    display:block;
+}
+
+.input-custom{
+    margin-bottom:20px;
+    padding:5px;
+    width:96%;
+}
+
+.button-custom{
+    padding:5px;
+    float:right;
+}
+
+.input-container{
+    margin-bottom:30px;
+    text-align:left;
+}
+
+.error-info{
+    display: none;
+    font-size:20px;
+    color:red;
+    }
+    
+.success-info{
+    display: none;
+    font-size:20px;
+    color:green;
+    }
+    
+.progress-info{
+    display: none;
+    font-size:20px;
+    }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
