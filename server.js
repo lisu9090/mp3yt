@@ -1,7 +1,5 @@
-const YoutubeMp3Downloader = require("youtube-mp3-downloader");
 const express = require('express');
-const path = require('path');
-const router = express.Router();
+const YoutubeMp3Downloader = require("youtube-mp3-downloader");
 const gulp = require('gulp');
 const clean = require('gulp-clean');
 
@@ -19,7 +17,11 @@ const YD = new YoutubeMp3Downloader({
 app.listen(port, () => console.log(`YouTube mp3 downloader is listening on port ${port}!`));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/index.html'))
+    res.send("localhost:300/getaudio/:vid");
+});
+
+app.get('/scripts/:name', (req, res) => {
+    res.sendFile(__dirname + '/scripts/' + req.params.name);
 });
 
 app.get('/getaudio/:vid', (req, res) => {
@@ -57,10 +59,9 @@ app.get('/getaudio/:vid', (req, res) => {
 
 });
 
-app.use(express.static(__dirname + '/views'));
-app.use(express.static(__dirname + '/scripts'));
-
-app.use('/', router);
+app.post('/cancel/:vid', (req, res) => {
+    //YD...
+});
 
 const removeFile = function(fileName){
     if(fileName){
