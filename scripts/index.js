@@ -10,11 +10,13 @@ var processUrl = function(){
       $.post("convert/" + vid)
       .done(function(){ // data, textStatus, jqXHR 
         //use data to get audio name
+        $("#error").hide();
         $("#success").show();
         window.location.href += 'getaudio/' + vid;
        })
       .fail(function(jqXHR, textStatus, errorThrown){
         console.log(errorThrown)
+        $("#success").hide();
         $("#error").show();
       })
       .always(function(){ //jqXHROrData, textStatus, jqXHROrErrorThrown
