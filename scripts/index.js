@@ -6,7 +6,14 @@ var processUrl = function(){
 
       var url = new URL(urlString);
       var vid = url.searchParams.get("v");
-      window.location.href += 'getaudio/' + vid;
+
+      $.post("convert/" + vid, function(data){
+          console.log(data);
+          $("#progress").hide();
+          $("#loading").hide();
+          $("#success").show();
+          window.location.href += 'getaudio/' + vid;
+      });
     }
  }
 
