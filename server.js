@@ -1,4 +1,5 @@
 const YoutubeMp3Downloader = require("youtube-mp3-downloader");
+const youtubeStream = require('youtube-audio-stream');
 const express = require('express');
 const path = require('path');
 const router = express.Router();
@@ -106,6 +107,21 @@ app.get('/getaudio/:vid', (req, res) => {
         res.download(__dirname +'/converted/' + audioName, () => {
             removeFile(audioName);
         });
+    }
+    catch(exception){
+        console.log(exception)
+        res.status(500).send("Internal server error");
+    }
+});
+
+app.get('/getaudio/stream/:vid', (req, res) => {
+    if(!req.params.vid)
+        return;
+
+    const requestUrl = 'http://youtube.com/watch?v=' + req.params.videoId
+
+    try{
+        youtubeStream(requestUrl).pipe(res)
     }
     catch(exception){
         console.log(exception)
