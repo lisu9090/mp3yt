@@ -118,7 +118,7 @@ app.get('/getaudio/stream/:vid', (req, res) => {
     if(!req.params.vid)
         return;
 
-    const requestUrl = 'http://youtube.com/watch?v=' + req.params.videoId
+    const requestUrl = 'http://youtube.com/watch?v=' + req.params.vid
 
     try{
         youtubeStream(requestUrl).pipe(res)
